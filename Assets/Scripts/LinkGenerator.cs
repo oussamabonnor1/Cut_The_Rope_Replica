@@ -8,6 +8,7 @@ public class LinkGenerator : MonoBehaviour
     public GameObject linkPrefab;
     public GameObject weight;
     public int chainLength;
+    public float weightDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,6 @@ public class LinkGenerator : MonoBehaviour
         HingeJoint2D weightJoint = weight.AddComponent<HingeJoint2D>();
         weightJoint.autoConfigureConnectedAnchor = false;
         weightJoint.connectedBody = previousBody;
-        weightJoint.connectedAnchor = new Vector2(0,-.3f);
+        weightJoint.connectedAnchor = new Vector2(0,-weightDistance);
     }
 }
