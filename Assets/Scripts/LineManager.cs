@@ -7,20 +7,23 @@ public class LineManager : MonoBehaviour {
 
 	public GameObject linePrefab;
 	public LineBehaviour activeLine;
+    GameObject line;
 
-	void Update () {
+    void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			GameObject line = Instantiate (linePrefab);
+			line = Instantiate (linePrefab);
 			activeLine = line.GetComponent<LineBehaviour> ();
 		}
 
 		if (activeLine != null) {
+            print("mouse Position");
 			Vector2 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			activeLine.updateLine (mousePosition);
 		}
 
 		if (Input.GetMouseButtonUp (0)){ 
 			activeLine = null;
+            Destroy(line);
 		}
 	}
 
