@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FrogBehaviour : MonoBehaviour {
     bool candyCaught = false;
@@ -18,8 +19,13 @@ public class FrogBehaviour : MonoBehaviour {
     IEnumerator candyDissapear (GameObject candyObject) {
         for (float i = 10; i > 0; i--) {
             candyObject.transform.localScale = new Vector3 (i / 10, i / 10, i / 10);
+            candyObject.transform.position = Vector3.Lerp(candyObject.transform.position, transform.position, 0.1f);
             yield return new WaitForSeconds (.01f);
         }
         Destroy(candyObject);
+        yield return new WaitForSeconds(.8f);
+        print(SceneManager.GetActiveScene().buildIndex + 1);
+        print(SceneManager.sceneCountInBuildSettings);
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
     }
 }

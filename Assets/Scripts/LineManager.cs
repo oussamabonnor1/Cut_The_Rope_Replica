@@ -16,8 +16,7 @@ public class LineManager : MonoBehaviour {
 		}
 
 		if (activeLine != null) {
-            print("mouse Position");
-			Vector2 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			activeLine.updateLine (mousePosition);
 		}
 
@@ -27,8 +26,4 @@ public class LineManager : MonoBehaviour {
 		}
 	}
 
-
-	public void restartScene(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}
 }
