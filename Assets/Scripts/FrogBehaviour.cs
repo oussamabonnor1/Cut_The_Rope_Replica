@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FrogBehaviour : MonoBehaviour {
+
     bool candyCaught = false;
+    public int sceneToLoad;
+
     void OnTriggerEnter2D (Collider2D other) {
         if (other.gameObject.tag == "Candy") {
             other.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
@@ -24,8 +27,6 @@ public class FrogBehaviour : MonoBehaviour {
         }
         Destroy(candyObject);
         yield return new WaitForSeconds(.8f);
-        print(SceneManager.GetActiveScene().buildIndex + 1);
-        print(SceneManager.sceneCountInBuildSettings);
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
