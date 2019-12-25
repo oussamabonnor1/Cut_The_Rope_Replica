@@ -11,7 +11,8 @@ public class LineManager : MonoBehaviour {
 
     void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			line = Instantiate (linePrefab);
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            line = Instantiate (linePrefab, mousePosition, Quaternion.identity);
 			activeLine = line.GetComponent<LineBehaviour> ();
 		}
 
