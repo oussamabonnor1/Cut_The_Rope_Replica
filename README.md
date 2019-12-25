@@ -6,7 +6,7 @@
 A "Cut the Rope" game replica, 2D fun mobile game about helping the frog get the candy.
 
 ## Screenshot:
-<img src="ScreenShots/lineGif.gif" width ="450"/>
+<img src="Screenshot/CutGif.gif" width ="500"/>
 
 ## Game logic:
 Cut lines in a smart way to get the frog to eat the candy.
